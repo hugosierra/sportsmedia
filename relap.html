@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="es-MX">
-<head>
+<head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.5.1",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this._interceptClickListeners(this),window.addEventListener("pageshow",e=>{this.persisted=e.persisted,this.everythingLoaded&&this._triggerLastFunctions()}),document.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(e){if(document.hidden){e._triggerListener();return}this.triggerEvents.forEach(t=>window.addEventListener(t,e.userEventHandler,{passive:!0})),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(e=>window.removeEventListener(e,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._disableOtherEventListeners(e.target,!0),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._disableOtherEventListeners(e.target,!1),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._disableOtherEventListeners(e.target,!1),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))})}_interceptClickListeners(e){EventTarget.prototype.addEventListenerBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(t,i,r){"click"!==t||e.windowLoaded||i===e.clickHandler||e.interceptedClickListeners.push({target:this,func:i,options:r}),(this||window).addEventListenerBase(t,i,r)}}_disableOtherEventListeners(e,t){this.interceptedClickListeners.forEach(i=>{i.target===e&&(t?e.removeEventListener("click",i.func,i.options):e.addEventListener("click",i.func,i.options))}),e.parentNode!==document.documentElement&&this._disableOtherEventListeners(e.parentNode,t)}_waitForPendingClicks(){return new Promise(e=>{this._isClickPending?this._pendingClickFinished=e:e()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(e,t,i){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(i,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(t=>{let i=t.getAttribute("data-rocket-src");if(i&&0!==i.indexOf("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{let r=new URL(i).origin;r!==location.origin&&e.push({src:r,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}catch(n){}}}),e=[...new Map(e.map(e=>[JSON.stringify(e),e])).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(e){console.error(e)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{e.hasAttribute("data-rocket-src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)})}async _transformScript(e){if(await this._littleBreath(),!0===e.noModule&&"noModule"in HTMLScriptElement.prototype){e.setAttribute("data-rocket-status","skipped");return}return new Promise(t=>{let i;function r(){(i||e).setAttribute("data-rocket-status","executed"),t()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)i=document.createElement("script"),[...e.attributes].forEach(e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),"data-rocket-src"===t&&(t="src"),i.setAttribute(t,e.nodeValue))}),e.text&&(i.text=e.text),i.hasAttribute("src")?(i.addEventListener("load",r),i.addEventListener("error",function(){i.setAttribute("data-rocket-status","failed"),t()}),setTimeout(()=>{i.isConnected||t()},1)):(i.text=e.text,r()),e.parentNode.replaceChild(i,e);else{let n=e.getAttribute("data-rocket-type"),s=e.getAttribute("data-rocket-src");n?(e.type=n,e.removeAttribute("data-rocket-type")):e.removeAttribute("type"),e.addEventListener("load",r),e.addEventListener("error",function(){e.setAttribute("data-rocket-status","failed"),t()}),s?(e.removeAttribute("data-rocket-src"),e.src=s):e.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(e.text)))}}catch(a){e.setAttribute("data-rocket-status","failed"),t()}})}async _loadScriptsFromList(e){let t=e.shift();return t&&t.isConnected?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var i=document.createDocumentFragment();e.forEach(e=>{let r=e.getAttribute&&e.getAttribute("data-rocket-src")||e.src;if(r){let n=document.createElement("link");n.href=r,n.rel=t,"preconnect"!==t&&(n.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),e.crossOrigin&&(n.crossOrigin=e.crossOrigin),e.integrity&&(n.integrity=e.integrity),i.appendChild(n),this.trash.push(n)}}),document.head.appendChild(i)}_delayEventListeners(e){let t={};function i(i,r){return t[r].eventsToRewrite.indexOf(i)>=0&&!e.everythingLoaded?"rocket-"+i:i}function r(e,r){var n;!t[n=e]&&(t[n]={originalFunctions:{add:n.addEventListener,remove:n.removeEventListener},eventsToRewrite:[]},n.addEventListener=function(){arguments[0]=i(arguments[0],n),t[n].originalFunctions.add.apply(n,arguments)},n.removeEventListener=function(){arguments[0]=i(arguments[0],n),t[n].originalFunctions.remove.apply(n,arguments)}),t[e].eventsToRewrite.push(r)}function n(t,i){let r=t[i];t[i]=null,Object.defineProperty(t,i,{get:()=>r||function(){},set(n){e.everythingLoaded?r=n:t["rocket"+i]=r=n}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t;function i(t){return e.everythingLoaded?t:t.split(" ").map(e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e).join(" ")}function r(r){if(r&&r.fn&&!e.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(t){return e.domReadyFired?t.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>t.bind(document)(r)),r([])};let n=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let t=arguments[0][e];delete arguments[0][e],arguments[0][i(e)]=t})),n.apply(this,arguments),this},e.allJQueries.push(r)}t=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>t,set(e){r(e)}})}async _pendingWebpackRequests(e){let t=document.querySelector("script[data-webpack]");async function i(){return new Promise(e=>{t.addEventListener("load",e),t.addEventListener("error",e)})}t&&(await i(),await e._requestAnimFrame(),await e._pendingWebpackRequests(e))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async _triggerWindowLoad(){await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(e=>e(window).trigger("rocket-jquery-load")),await this._littleBreath();let e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}_triggerLastFunctions(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}_handleDocumentWrite(){let e=new Map;document.write=document.writeln=function(t){let i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+t);let r=document.createRange(),n=i.parentElement,s=e.get(i);void 0===s&&(s=i.nextSibling,e.set(i,s));let a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(e=>setTimeout(e)):new Promise(e=>requestAnimationFrame(e))}_emptyTrash(){this.trash.forEach(e=>e.remove())}static run(){let e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name='robots' content='max-image-preview:large' />
@@ -254,16 +254,16 @@
 	}
 	</script>	
 
-	<link rel="apple-touch-icon" sizes="180x180" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/favicon-32x32-1.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/favicon-16x16-1.png">
-	<link rel="mask-icon" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/apple-touch-icon.png" color="">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/apple-touch-icon.png.webp">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/apple-touch-icon.png.webp">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/favicon-32x32-1.png.webp">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/favicon-16x16-1.png.webp">
+	<link rel="mask-icon" href="https://lineadirectaportal.com/wp-content/uploads/2022/09/apple-touch-icon.png.webp" color="">
 	<meta name="msapplication-TileColor" content="">
 	<meta name="theme-color" content="">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>
+<script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script type="rocketlazyloadscript">
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
@@ -271,8 +271,8 @@ gtag('js', new Date());
 gtag('config', '');
 </script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JF1MXE62BD"></script>
-<script>
+<script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-JF1MXE62BD"></script>
+<script type="rocketlazyloadscript">
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
@@ -280,7 +280,7 @@ gtag('js', new Date());
 gtag('config', 'G-JF1MXE62BD');
 </script>
 <!-- Google Tag Manager -->
-<script>
+<script type="rocketlazyloadscript">
 (function(w,d,s,l,i){
     w[l]=w[l]||[];
     w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
@@ -291,7 +291,7 @@ gtag('config', 'G-JF1MXE62BD');
     f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','DEFAULT_GTM_ID');
 </script>
-<!-- End Google Tag Manager --><script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script><script>
+<!-- End Google Tag Manager --><script type="rocketlazyloadscript" async data-rocket-src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script><script type="rocketlazyloadscript">
 window.googletag = window.googletag || {cmd: []};
 googletag.cmd.push(function() {
 var mapping_horizontal2 = googletag.sizeMapping().
@@ -317,14 +317,14 @@ googletag.enableServices();
 </script>
 
 <!-- Header -->
-<script async="" src="https://cdn.relappro.com/adservices/v4/relapads.lite.js"></script>
-<script>
+<script type="rocketlazyloadscript" async="" data-rocket-src="https://cdn.relappro.com/adservices/v4/relapads.lite.js"></script>
+<script type="rocketlazyloadscript">
     var adserviceslt = adserviceslt || {};
     adserviceslt.cmd = adserviceslt.cmd || [];
     adserviceslt.cmd.push(() => {
         adserviceslt.define('af8a0b47-c39c-4d03-b719-e7278d34aae2');
     });
-</script><script>
+</script><script type="rocketlazyloadscript">
   var _comscore = _comscore || [];
   _comscore.push({
     c1: "2", c2: "14646644", cs_ucfr: "1" ,
@@ -340,18 +340,16 @@ googletag.enableServices();
 </script>
 <noscript>
   <img src="https://sb.scorecardresearch.com/p?c1=2&c2=14646644&cs_ucfr=1&cv=3.9.1&cj=1">
-</noscript><link rel='stylesheet' id='dashicons-css'  href='https://lineadirectaportal.com/wp-includes/css/dashicons.min.css?ver=6.0.9' type='text/css' media='all' />
-<link rel='stylesheet' id='admin-bar-css'  href='https://lineadirectaportal.com/wp-includes/css/admin-bar.min.css?ver=6.0.9' type='text/css' media='all' />
-<link rel='stylesheet' id='main-styles-css'  href='https://lineadirectaportal.com/wp-content/themes/ldirecta_3p0/css/styles.css?ver=1.0.75' type='text/css' media='all' />
-<style type="text/css" media="print">#wpadminbar { display:none; }</style>
-	<style type="text/css" media="screen">
-	html { margin-top: 32px !important; }
-	@media screen and ( max-width: 782px ) {
-		html { margin-top: 46px !important; }
-	}
+</noscript><link data-minify="1" rel='stylesheet' id='main-styles-css'  href='https://lineadirectaportal.com/wp-content/cache/background-css/lineadirectaportal.com/wp-content/cache/min/1/wp-content/themes/ldirecta_3p0/css/styles.css?ver=1748968727&wpr_t=1749823549' type='text/css' media='all' />
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-42a92748-5463-403d-9ab9-eedaf15660d5) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
 </style>
-	
-</head>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+<style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.btn--gnews:before{--wpr-bg-20500acd-4d91-4397-a9bf-707541a92878: url('https://lineadirectaportal.com/wp-content/themes/ldirecta_3p0/assets/images/gnews_icon.png');}.btn--gnews:after{--wpr-bg-8dd69a3f-de9c-40e3-b986-fe4e40d928c3: url('https://lineadirectaportal.com/wp-content/themes/ldirecta_3p0/assets/images/gnews_logo.png');}.suscribe{--wpr-bg-cc8f474d-5696-4525-8506-cb4007ee3809: url('https://lineadirectaportal.com/wp-content/themes/ldirecta_3p0/assets/images/suscribe_bg.jpg');}.rll-youtube-player .play{--wpr-bg-42a92748-5463-403d-9ab9-eedaf15660d5: url('https://lineadirectaportal.com/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".btn--gnews","style":".btn--gnews:before{--wpr-bg-20500acd-4d91-4397-a9bf-707541a92878: url('https:\/\/lineadirectaportal.com\/wp-content\/themes\/ldirecta_3p0\/assets\/images\/gnews_icon.png');}","hash":"20500acd-4d91-4397-a9bf-707541a92878","url":"https:\/\/lineadirectaportal.com\/wp-content\/themes\/ldirecta_3p0\/assets\/images\/gnews_icon.png"},{"selector":".btn--gnews","style":".btn--gnews:after{--wpr-bg-8dd69a3f-de9c-40e3-b986-fe4e40d928c3: url('https:\/\/lineadirectaportal.com\/wp-content\/themes\/ldirecta_3p0\/assets\/images\/gnews_logo.png');}","hash":"8dd69a3f-de9c-40e3-b986-fe4e40d928c3","url":"https:\/\/lineadirectaportal.com\/wp-content\/themes\/ldirecta_3p0\/assets\/images\/gnews_logo.png"},{"selector":".suscribe","style":".suscribe{--wpr-bg-cc8f474d-5696-4525-8506-cb4007ee3809: url('https:\/\/lineadirectaportal.com\/wp-content\/themes\/ldirecta_3p0\/assets\/images\/suscribe_bg.jpg');}","hash":"cc8f474d-5696-4525-8506-cb4007ee3809","url":"https:\/\/lineadirectaportal.com\/wp-content\/themes\/ldirecta_3p0\/assets\/images\/suscribe_bg.jpg"},{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-42a92748-5463-403d-9ab9-eedaf15660d5: url('https:\/\/lineadirectaportal.com\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"42a92748-5463-403d-9ab9-eedaf15660d5","url":"https:\/\/lineadirectaportal.com\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [];</script></head>
 <body data-rsssl=1>
 
 <header id="site-header" class="header header--site header-site">
@@ -368,7 +366,7 @@ googletag.enableServices();
 
 	<div class="header__logo">
 		<a href="https://lineadirectaportal.com">
-		<img src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png" alt="Logo"/>		</a>
+		<img width="1920" height="614" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%20614'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png"/><noscript><img width="1920" height="614" src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png" alt="Logo"/></noscript>		</a>
 	</div>
 
 	<div class="header__element">
@@ -381,7 +379,7 @@ googletag.enableServices();
 
 </header>
 
-<script type="text/javascript">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
 function popUp(URL) {
     window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=500,height=600,left = 390,top = 50');
 }
@@ -400,11 +398,49 @@ function popUp(URL) {
 		</div>
 		<div class="news-list-container">
 			
+	<div class="news-item news-item--1411480">
+	<a href="https://lineadirectaportal.com/sinaloa/aplican-70-multas-por-quema-de-basura-y-maleza-en-guasave-piden-evitar-incendios-en-temporada-critica-2025-06-13__1411480">
+
+	<figure class="news-item__thumb">
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20960%20723'%3E%3C/svg%3E" alt="Maleza" width="960" height="723" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Maleza.jpeg"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Maleza.jpeg" alt="Maleza" width="960" height="723"/></noscript>
+	</figure>
+
+	<div class="news-item__content">
+		<span class="news-locator">MULTAS</span>
+		<h3 class="news-title">Aplican 70 multas por quema de basura y maleza en Guasave; piden evitar incendios en temporada crítica</h3>
+		<div class="news-meta">
+			<span class="news-author">Jonathan Espinoza</span>
+			<time class="news-time">13 junio, 2025</time>
+		</div>	
+	</div>
+
+	</a>
+	</div>
+
+	<div class="news-item news-item--1411461">
+	<a href="https://lineadirectaportal.com/sinaloa/no-danan-banquetas-arboles-de-cacalosuchil-embellecen-paisaje-con-sus-flores-y-atraen-polinizinadores-2025-06-13__1411461">
+
+	<figure class="news-item__thumb">
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20900%20500'%3E%3C/svg%3E" alt="Flor del árbol de cacalosúchil" width="900" height="500" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Flor-del-árbol-de-cacalosúchil.jpg"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Flor-del-árbol-de-cacalosúchil.jpg" alt="Flor del árbol de cacalosúchil" width="900" height="500"/></noscript>
+	</figure>
+
+	<div class="news-item__content">
+		<span class="news-locator">PROYECTO ESMERALDA</span>
+		<h3 class="news-title">¡No dañan banquetas! El árbol de cacalosúchil embellece paisajes con sus flores y atrae polinizadores</h3>
+		<div class="news-meta">
+			<span class="news-author">Mireya Trejo</span>
+			<time class="news-time">13 junio, 2025</time>
+		</div>	
+	</div>
+
+	</a>
+	</div>
+
 	<div class="news-item news-item--1411460">
 	<a href="https://lineadirectaportal.com/sinaloa/pescadores-de-la-presa-el-varejonal-y-autoridades-acuerdan-adelantar-la-veda-para-el-15-de-junio-2025-06-13__1411460">
 
 	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Pescadores.png" alt="Acuerdan adelantar la veda para el 15 de junio" width="1600" height="900"/>
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%20900'%3E%3C/svg%3E" alt="Acuerdan adelantar la veda para el 15 de junio" width="1600" height="900" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Pescadores.png"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Pescadores.png" alt="Acuerdan adelantar la veda para el 15 de junio" width="1600" height="900"/></noscript>
 	</figure>
 
 	<div class="news-item__content">
@@ -423,7 +459,7 @@ function popUp(URL) {
 	<a href="https://lineadirectaportal.com/sinaloa/donacion-de-sangre-voluntaria-y-altruista-es-muy-baja-lamentan-en-el-hospital-general-de-mazatlan-2025-06-13__1411439">
 
 	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/donacion-de-sangre.jpeg" alt="donación de sangre" width="1600" height="1200"/>
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%201200'%3E%3C/svg%3E" alt="donación de sangre" width="1600" height="1200" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/donacion-de-sangre.jpeg"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/donacion-de-sangre.jpeg" alt="donación de sangre" width="1600" height="1200"/></noscript>
 	</figure>
 
 	<div class="news-item__content">
@@ -431,44 +467,6 @@ function popUp(URL) {
 		<h3 class="news-title">Donación de sangre voluntaria y altruista es muy baja, lamentan en el Hospital General de Mazatlán</h3>
 		<div class="news-meta">
 			<span class="news-author">Juan Gabriel Franco</span>
-			<time class="news-time">13 junio, 2025</time>
-		</div>	
-	</div>
-
-	</a>
-	</div>
-
-	<div class="news-item news-item--1411433">
-	<a href="https://lineadirectaportal.com/entretenimiento/cuales-son-las-mejores-peliculas-mexicanas-para-ver-en-netflix-checa-aqui-el-dato-2025-06-13__1411433">
-
-	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/palomitas-cine.png" alt="palomitas cine" width="900" height="500"/>
-	</figure>
-
-	<div class="news-item__content">
-		<span class="news-locator">Entretenimiento</span>
-		<h3 class="news-title">¿Cuáles son las mejores películas mexicanas para ver en Netflix? Checa aquí el dato</h3>
-		<div class="news-meta">
-			<span class="news-author">Melissa Martínez</span>
-			<time class="news-time">13 junio, 2025</time>
-		</div>	
-	</div>
-
-	</a>
-	</div>
-
-	<div class="news-item news-item--1411444">
-	<a href="https://lineadirectaportal.com/sinaloa/medio-ambiente-de-ahome-llama-a-ciudadanos-a-podar-sus-arboles-antes-del-periodo-de-lluvias-2025-06-13__1411444">
-
-	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Solangel-Sedano-Fierro-e1749847124158.jpeg" alt="Solangel Sedano Fierro" width="4032" height="2368"/>
-	</figure>
-
-	<div class="news-item__content">
-		<span class="news-locator">AHOME</span>
-		<h3 class="news-title">Medio Ambiente de Ahome llama a ciudadanos a podar sus árboles antes del periodo de lluvias</h3>
-		<div class="news-meta">
-			<span class="news-author">Gabriel Ruiz</span>
 			<time class="news-time">13 junio, 2025</time>
 		</div>	
 	</div>
@@ -496,7 +494,7 @@ function popUp(URL) {
 	
 	<header class="header header--nav">
 		<div class="logo">
-		<img src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png" alt="Logo"/>		</div>
+		<img width="1920" height="614" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%20614'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png"/><noscript><img width="1920" height="614" src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png" alt="Logo"/></noscript>		</div>
 		<button class="btn btn--close nav-toggle" onclick="hideNav()" aria-label="Cerrar menú de navegación"><span></span><span></span></button>
 		
 	</header>
@@ -540,7 +538,7 @@ function popUp(URL) {
 	
 </div>
 			<div class="ads wrapper"><div id='LD_Secciones_Horizontal_1'>
-  <script>
+  <script type="rocketlazyloadscript">
     googletag.cmd.push(function() { googletag.display('LD_Secciones_Horizontal_1'); });
   </script>
 </div></div>
@@ -639,7 +637,7 @@ function popUp(URL) {
 	</div>
 
 			<div class="ads"><div id='LD_Secciones_Horizontal_2'>
-  <script>
+  <script type="rocketlazyloadscript">
     googletag.cmd.push(function() { googletag.display('LD_Secciones_Horizontal_2'); });
   </script>
 </div></div>
@@ -706,9 +704,7 @@ function popUp(URL) {
 	<a href="https://lineadirectaportal.com/deportes/los-mejores-directores-tecnicos-que-ha-tenido-la-seleccion-mexicana-estos-son-los-mejores-segun-la-ia-2025-06-13__1411302">
 
 	<figure class="news-item__thumb">
-		<img srcset="
-		https://lineadirectaportal.com/wp-content/uploads/2024/10/Seleccion-Mexicana-350x280.png 100w,
-		https://lineadirectaportal.com/wp-content/uploads/2024/10/Seleccion-Mexicana-960x560.png 800w"
+		<img srcset="https://lineadirectaportal.com/wp-content/uploads/2024/10/Seleccion-Mexicana-350x280.png.webp 100w,https://lineadirectaportal.com/wp-content/uploads/2024/10/Seleccion-Mexicana-960x560.png.webp 800w"
 		sizes="
 		(max-width: 768px) 100px,
 		800px
@@ -732,7 +728,7 @@ function popUp(URL) {
 	</div>
 
 			<div class="ads"><div id='LD_Secciones_Horizontal_3'>
-  <script>
+  <script type="rocketlazyloadscript">
     googletag.cmd.push(function() { googletag.display('LD_Secciones_Horizontal_3'); });
   </script>
 </div></div>
@@ -800,9 +796,7 @@ function popUp(URL) {
 	<a href="https://lineadirectaportal.com/deportes/mundial-2026-mexico-espera-5-5-millones-de-turistas-y-derrama-economica-de-mas-de-mil-millones-de-dolares-2025-06-13__1411174">
 
 	<figure class="news-item__thumb">
-		<img srcset="
-		https://lineadirectaportal.com/wp-content/uploads/2023/12/Estadio-Azteca-200-350x280.jpeg 100w,
-		https://lineadirectaportal.com/wp-content/uploads/2023/12/Estadio-Azteca-200-960x560.jpeg 800w"
+		<img srcset="https://lineadirectaportal.com/wp-content/uploads/2023/12/Estadio-Azteca-200-350x280.jpeg.webp 100w,https://lineadirectaportal.com/wp-content/uploads/2023/12/Estadio-Azteca-200-960x560.jpeg.webp 800w"
 		sizes="
 		(max-width: 768px) 100px,
 		800px
@@ -826,7 +820,7 @@ function popUp(URL) {
 	</div>
 
 			<div class="ads"><div id='LD_Secciones_Horizontal_4'>
-  <script>
+  <script type="rocketlazyloadscript">
     googletag.cmd.push(function() { googletag.display('LD_Secciones_Horizontal_4'); });
   </script>
 </div></div>
@@ -930,7 +924,7 @@ function popUp(URL) {
 
 			
 			<div class="ads"><div id='LD_Secciones_Rectangle_1'>
-<script>
+<script type="rocketlazyloadscript">
 googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); });
 </script>
 </div></div>
@@ -943,11 +937,49 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 	<div class="widget__content">
 		<div class="news-list">
 		
+	<div class="news-item news-item--1411480">
+	<a href="https://lineadirectaportal.com/sinaloa/aplican-70-multas-por-quema-de-basura-y-maleza-en-guasave-piden-evitar-incendios-en-temporada-critica-2025-06-13__1411480">
+
+	<figure class="news-item__thumb">
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20960%20723'%3E%3C/svg%3E" alt="Maleza" width="960" height="723" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Maleza.jpeg"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Maleza.jpeg" alt="Maleza" width="960" height="723"/></noscript>
+	</figure>
+
+	<div class="news-item__content">
+		<span class="news-locator">MULTAS</span>
+		<h3 class="news-title">Aplican 70 multas por quema de basura y maleza en Guasave; piden evitar incendios en temporada crítica</h3>
+		<div class="news-meta">
+			<span class="news-author">Jonathan Espinoza</span>
+			<time class="news-time">13 junio, 2025</time>
+		</div>	
+	</div>
+
+	</a>
+	</div>
+
+	<div class="news-item news-item--1411461">
+	<a href="https://lineadirectaportal.com/sinaloa/no-danan-banquetas-arboles-de-cacalosuchil-embellecen-paisaje-con-sus-flores-y-atraen-polinizinadores-2025-06-13__1411461">
+
+	<figure class="news-item__thumb">
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20900%20500'%3E%3C/svg%3E" alt="Flor del árbol de cacalosúchil" width="900" height="500" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Flor-del-árbol-de-cacalosúchil.jpg"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Flor-del-árbol-de-cacalosúchil.jpg" alt="Flor del árbol de cacalosúchil" width="900" height="500"/></noscript>
+	</figure>
+
+	<div class="news-item__content">
+		<span class="news-locator">PROYECTO ESMERALDA</span>
+		<h3 class="news-title">¡No dañan banquetas! El árbol de cacalosúchil embellece paisajes con sus flores y atrae polinizadores</h3>
+		<div class="news-meta">
+			<span class="news-author">Mireya Trejo</span>
+			<time class="news-time">13 junio, 2025</time>
+		</div>	
+	</div>
+
+	</a>
+	</div>
+
 	<div class="news-item news-item--1411460">
 	<a href="https://lineadirectaportal.com/sinaloa/pescadores-de-la-presa-el-varejonal-y-autoridades-acuerdan-adelantar-la-veda-para-el-15-de-junio-2025-06-13__1411460">
 
 	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Pescadores.png" alt="Acuerdan adelantar la veda para el 15 de junio" width="1600" height="900"/>
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%20900'%3E%3C/svg%3E" alt="Acuerdan adelantar la veda para el 15 de junio" width="1600" height="900" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Pescadores.png"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Pescadores.png" alt="Acuerdan adelantar la veda para el 15 de junio" width="1600" height="900"/></noscript>
 	</figure>
 
 	<div class="news-item__content">
@@ -966,7 +998,7 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 	<a href="https://lineadirectaportal.com/sinaloa/donacion-de-sangre-voluntaria-y-altruista-es-muy-baja-lamentan-en-el-hospital-general-de-mazatlan-2025-06-13__1411439">
 
 	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/donacion-de-sangre.jpeg" alt="donación de sangre" width="1600" height="1200"/>
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%201200'%3E%3C/svg%3E" alt="donación de sangre" width="1600" height="1200" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/donacion-de-sangre.jpeg"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/donacion-de-sangre.jpeg" alt="donación de sangre" width="1600" height="1200"/></noscript>
 	</figure>
 
 	<div class="news-item__content">
@@ -985,7 +1017,7 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 	<a href="https://lineadirectaportal.com/entretenimiento/cuales-son-las-mejores-peliculas-mexicanas-para-ver-en-netflix-checa-aqui-el-dato-2025-06-13__1411433">
 
 	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/palomitas-cine.png" alt="palomitas cine" width="900" height="500"/>
+		<img class="news-thumbnail" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20900%20500'%3E%3C/svg%3E" alt="palomitas cine" width="900" height="500" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2025/06/palomitas-cine.png"/><noscript><img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/palomitas-cine.png" alt="palomitas cine" width="900" height="500"/></noscript>
 	</figure>
 
 	<div class="news-item__content">
@@ -999,57 +1031,19 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 
 	</a>
 	</div>
-
-	<div class="news-item news-item--1411444">
-	<a href="https://lineadirectaportal.com/sinaloa/medio-ambiente-de-ahome-llama-a-ciudadanos-a-podar-sus-arboles-antes-del-periodo-de-lluvias-2025-06-13__1411444">
-
-	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/Solangel-Sedano-Fierro-e1749847124158.jpeg" alt="Solangel Sedano Fierro" width="4032" height="2368"/>
-	</figure>
-
-	<div class="news-item__content">
-		<span class="news-locator">AHOME</span>
-		<h3 class="news-title">Medio Ambiente de Ahome llama a ciudadanos a podar sus árboles antes del periodo de lluvias</h3>
-		<div class="news-meta">
-			<span class="news-author">Gabriel Ruiz</span>
-			<time class="news-time">13 junio, 2025</time>
-		</div>	
-	</div>
-
-	</a>
-	</div>
-
-	<div class="news-item news-item--1411426">
-	<a href="https://lineadirectaportal.com/sinaloa/reunion-de-rocha-con-harfuch-y-trevilla-se-realizo-en-la-base-aerea-acuerdan-refuerzo-de-operativos-2025-06-13__1411426">
-
-	<figure class="news-item__thumb">
-		<img class="news-thumbnail" src="https://lineadirectaportal.com/wp-content/uploads/2025/06/RRM.jpg" alt="RRM" width="3812" height="2118"/>
-	</figure>
-
-	<div class="news-item__content">
-		<span class="news-locator">ENCUENTRO</span>
-		<h3 class="news-title">Reunión de Rocha con Harfuch y Trevilla se realizó en la Base Aérea; acuerdan refuerzo de operativos</h3>
-		<div class="news-meta">
-			<span class="news-author">Manuel Aceves</span>
-			<time class="news-time">13 junio, 2025</time>
-		</div>	
-	</div>
-
-	</a>
-	</div>
 		</div>
 	</div>
 
 </div>
 			<div class="ads sticky"><div id='LD_Secciones_Rectangle_2'>
-  <script>
+  <script type="rocketlazyloadscript">
     googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_2'); });
   </script>
 </div>
 <!-- Body -->
 
 <div id="relappro_lite_flotante">
-    <script>
+    <script type="rocketlazyloadscript">
         var adserviceslt = adserviceslt || {};
         adserviceslt.cmd = adserviceslt.cmd || [];
         adserviceslt.cmd.push(() => {
@@ -1096,8 +1090,8 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 			</div>
 
 		</form>
-		<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-		<script type='text/javascript'>
+		<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js' defer></script>
+		<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>window.addEventListener('DOMContentLoaded', function() {
 			(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';
 			$.extend($.validator.messages, {
 				required: "Este campo es obligatorio.",
@@ -1118,7 +1112,7 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 				max: $.validator.format("Por favor, escribe un valor menor o igual a {0}."),
 				min: $.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
 			});}(jQuery));var $mcj = jQuery.noConflict(true);
-		</script>
+		});</script>
 	</div>
 
 	</div>
@@ -1130,7 +1124,7 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 <div class="footer__upper">
 	<div class="wrapper">
 		<div class="footer-widget footer-identity">
-			<img src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png" alt="Logo"/><p>En su historia, el Sistema Informativo Línea Directa ha sumado la participación de periodistas de todo el estado, la República Mexicana y otros paises, logrando obtener un producto rico en noticias.</p>		</div>
+			<img width="1920" height="614" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%20614'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png"/><noscript><img width="1920" height="614" src="https://lineadirectaportal.com/wp-content/uploads/2024/03/logo-ldportal.png" alt="Logo"/></noscript><p>En su historia, el Sistema Informativo Línea Directa ha sumado la participación de periodistas de todo el estado, la República Mexicana y otros paises, logrando obtener un producto rico en noticias.</p>		</div>
 
 		<div class="footer-widget footer-links">
 			<nav class="nav nav--footer">
@@ -1165,34 +1159,39 @@ googletag.cmd.push(function() { googletag.display('LD_Secciones_Rectangle_1'); }
 <!-- fly fade -->
 <div id="fly-fade" class="fly-fade"></div>
 
-<script type="text/javascript">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
 window._taboola = window._taboola || [];
 _taboola.push({flush: true});
-</script><script type='text/javascript' src='https://lineadirectaportal.com/wp-includes/js/hoverintent-js.min.js?ver=2.2.1' id='hoverintent-js-js'></script>
-<script type='text/javascript' src='https://lineadirectaportal.com/wp-includes/js/admin-bar.min.js?ver=6.0.9' id='admin-bar-js'></script>
-<script type='text/javascript' src='https://lineadirectaportal.com/wp-content/themes/ldirecta_3p0/assets/js/fly-events.js?ver=6.0.9' id='fly-events-js'></script>
-	<script type="text/javascript">
-		(function() {
-			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
-
-				request = true;
-	
-			b[c] = b[c].replace( rcs, ' ' );
-			// The customizer requires postMessage and CORS (if the site is cross domain).
-			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
-		}());
-	</script>
-			<div id="wpadminbar" class="nojq nojs">
-							<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Ir a la barra de herramientas</a>
-						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Barra de herramientas">
-				<ul id='wp-admin-bar-root-default' class="ab-top-menu"><li id='wp-admin-bar-wp-logo' class="menupop"><a class='ab-item' aria-haspopup="true" href='https://lineadirectaportal.com/wp-admin/about.php'><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">Acerca de WordPress</span></a><div class="ab-sub-wrapper"><ul id='wp-admin-bar-wp-logo-default' class="ab-submenu"><li id='wp-admin-bar-about'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/about.php'>Acerca de WordPress</a></li></ul><ul id='wp-admin-bar-wp-logo-external' class="ab-sub-secondary ab-submenu"><li id='wp-admin-bar-wporg'><a class='ab-item' href='https://es-mx.wordpress.org/'>WordPress.org</a></li><li id='wp-admin-bar-documentation'><a class='ab-item' href='https://es-mx.wordpress.org/support/'>Documentación</a></li><li id='wp-admin-bar-support-forums'><a class='ab-item' href='https://es-mx.wordpress.org/support/forums/'>Soporte</a></li><li id='wp-admin-bar-feedback'><a class='ab-item' href='https://es-mx.wordpress.org/support/forum/comunidad/peticiones-y-feedback/'>Sugerencias</a></li></ul></div></li><li id='wp-admin-bar-site-name' class="menupop"><a class='ab-item' aria-haspopup="true" href='https://lineadirectaportal.com/wp-admin/'>Línea Directa</a><div class="ab-sub-wrapper"><ul id='wp-admin-bar-site-name-default' class="ab-submenu"><li id='wp-admin-bar-dashboard'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/'>Escritorio</a></li></ul><ul id='wp-admin-bar-appearance' class="ab-submenu"><li id='wp-admin-bar-themes'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/themes.php'>Temas</a></li><li id='wp-admin-bar-menus'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/nav-menus.php'>Menús</a></li></ul></div></li><li id='wp-admin-bar-customize' class="hide-if-no-customize"><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/customize.php?url=https%3A%2F%2Flineadirectaportal.com%2Fseccion%2Fdeportes'>Personalizar</a></li><li id='wp-admin-bar-updates'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/update-core.php'><span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">7</span><span class="screen-reader-text updates-available-text">7 actualizaciones disponibles</span></a></li><li id='wp-admin-bar-comments'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/edit-comments.php'><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text comments-in-moderation-text">0 Comentarios en moderación</span></a></li><li id='wp-admin-bar-new-content' class="menupop"><a class='ab-item' aria-haspopup="true" href='https://lineadirectaportal.com/wp-admin/post-new.php'><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">Añadir</span></a><div class="ab-sub-wrapper"><ul id='wp-admin-bar-new-content-default' class="ab-submenu"><li id='wp-admin-bar-new-post'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php'>Entrada</a></li><li id='wp-admin-bar-new-media'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/media-new.php'>Medio</a></li><li id='wp-admin-bar-new-page'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php?post_type=page'>Página</a></li><li id='wp-admin-bar-new-authors'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php?post_type=authors'>Autores</a></li><li id='wp-admin-bar-new-specials'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php?post_type=specials'>Especiales</a></li><li id='wp-admin-bar-new-opinion'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php?post_type=opinion'>Opinión</a></li><li id='wp-admin-bar-new-livecast'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php?post_type=livecast'>Post Type</a></li><li id='wp-admin-bar-new-podcast'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php?post_type=podcast'>Post Type</a></li><li id='wp-admin-bar-new-video'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/post-new.php?post_type=video'>Post Type</a></li><li id='wp-admin-bar-new-user'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/user-new.php'>Usuario</a></li></ul></div></li><li id='wp-admin-bar-edit'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/term.php?taxonomy=category&#038;tag_ID=4&#038;post_type=post'>Editar Categoría</a></li><li id='wp-admin-bar-wp-rocket' class="menupop"><a class='ab-item' aria-haspopup="true" href='https://lineadirectaportal.com/wp-admin/options-general.php?page=wprocket'>WP Rocket</a><div class="ab-sub-wrapper"><ul id='wp-admin-bar-wp-rocket-default' class="ab-submenu"><li id='wp-admin-bar-rocket-settings'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/options-general.php?page=wprocket'>Settings</a></li><li id='wp-admin-bar-purge-all'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/admin-post.php?action=purge_cache&#038;type=all&#038;_wp_http_referer=%2Fseccion%2Fdeportes&#038;_wpnonce=39d8dbc756'>Clear cache</a></li><li id='wp-admin-bar-purge-url'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/admin-post.php?action=purge_cache&#038;type=url&#038;_wp_http_referer=%2Fseccion%2Fdeportes&#038;_wpnonce=abc7a29160'>Purge this URL</a></li><li id='wp-admin-bar-clear-usedcss-url'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/admin-post.php?action=rocket_clear_usedcss_url&#038;_wp_http_referer=%2Fseccion%2Fdeportes&#038;_wpnonce=692464a832'>Clear Used CSS of this URL</a></li><li id='wp-admin-bar-docs'><a class='ab-item' href='https://docs.wp-rocket.me/?utm_source=wp_plugin&#038;utm_medium=wp_rocket'>Documentation</a></li><li id='wp-admin-bar-faq'><a class='ab-item' href='https://wp-rocket.me/es/faq/?utm_source=wp_plugin&#038;utm_medium=wp_rocket'>FAQ</a></li><li id='wp-admin-bar-support'><a class='ab-item' href='https://wp-rocket.me/support/?utm_source=wp_plugin&#038;utm_medium=wp_rocket'>Support</a></li></ul></div></li></ul><ul id='wp-admin-bar-top-secondary' class="ab-top-secondary ab-top-menu"><li id='wp-admin-bar-search' class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="https://lineadirectaportal.com/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" /><label for="adminbar-search" class="screen-reader-text">Buscar</label><input type="submit" class="adminbar-button" value="Buscar" /></form></div></li><li id='wp-admin-bar-my-account' class="menupop with-avatar"><a class='ab-item' aria-haspopup="true" href='https://lineadirectaportal.com/wp-admin/profile.php'>Hola, <span class="display-name">seo.audit</span><img alt='' src='https://secure.gravatar.com/avatar/3639001fd20c9bed85e7e26b153fd2de?s=26&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/3639001fd20c9bed85e7e26b153fd2de?s=52&#038;d=mm&#038;r=g 2x' class='avatar avatar-26 photo' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id='wp-admin-bar-user-actions' class="ab-submenu"><li id='wp-admin-bar-user-info'><a class='ab-item' tabindex="-1" href='https://lineadirectaportal.com/wp-admin/profile.php'><img alt='' src='https://secure.gravatar.com/avatar/3639001fd20c9bed85e7e26b153fd2de?s=64&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/3639001fd20c9bed85e7e26b153fd2de?s=128&#038;d=mm&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>seo.audit</span></a></li><li id='wp-admin-bar-edit-profile'><a class='ab-item' href='https://lineadirectaportal.com/wp-admin/profile.php'>Editar perfil</a></li><li id='wp-admin-bar-logout'><a class='ab-item' href='https://lineadirectaportal.com/wp-login.php?action=logout&#038;_wpnonce=744577aa01'>Cerrar sesión</a></li></ul></div></li></ul>			</div>
-						<a class="screen-reader-shortcut" href="https://lineadirectaportal.com/wp-login.php?action=logout&#038;_wpnonce=744577aa01">Cerrar sesión</a>
-					</div>
-
-		
+</script><script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/opinion\/|\/especiales|\/especiales\/|\/|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/lineadirectaportal.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type='text/javascript' id='rocket_lazyload_css-js-extra'>
+/* <![CDATA[ */
+var rocket_lazyload_css_data = {"threshold":"300"};
+/* ]]> */
+</script>
+<script type='text/javascript' id='rocket_lazyload_css-js-after'>
+!function o(n,c,a){function s(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(r=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",r}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return s(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var u="function"==typeof require&&require,e=0;e<a.length;e++)s(a[e]);return s}({1:[function(e,t,r){"use strict";!function(){const r="undefined"==typeof rocket_pairs?[]:rocket_pairs,e="undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs;e.map(t=>{var e=t.selector;const r=document.querySelectorAll(e);r.forEach(e=>{e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"excluded")})});const o=document.querySelector("#wpr-lazyload-bg-container");var t=rocket_lazyload_css_data.threshold||300;const n=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){const e=r.filter(e=>t.target.matches(e.selector));e.map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,o.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"loaded")}))})}})},{rootMargin:t+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{const e=document.querySelectorAll(t.selector);e.forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&(n.observe(e),(t.elements||(t.elements=[])).push(e))})}catch(e){console.error(e)}})}c();const a=function(){const o=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType){const r=new o(t);return r.observe(e,{attributes:!0,childList:!0,subtree:!0}),r}}}();t=document.querySelector("body"),a(t,c)}()},{}]},{},[1]);
+//# sourceMappingURL=lazyload-css.min.js.map
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://lineadirectaportal.com/wp-content/themes/ldirecta_3p0/assets/js/fly-events.js?ver=6.0.9' id='fly-events-js' defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://lineadirectaportal.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
 
 <!-- Facebook Pixel Code -->
-<script>
+<script type="rocketlazyloadscript">
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -1211,9 +1210,9 @@ src="https://www.facebook.com/tr?id=812845758848158&ev=PageView&noscript=1"/>
 <!-- End Facebook Pixel Code -->
 
 <!-- happy push 05 -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
-<script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js" defer></script>
+<script type="rocketlazyloadscript">
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDJvbxSR129SmGQ0YCi3kv3q28DFzvnjt4",
@@ -1491,6 +1490,7 @@ if (messaging) {
 </script>
 
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94f47d8c7b6268e0',t:'MTc0OTg0ODE0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94f47d8c7b6268e0","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"cf070b2de6424b1785866022b7642bd6"}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94f49a7a6b5d6e72',t:'MTc0OTg0OTMyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94f49a7a6b5d6e72","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"cf070b2de6424b1785866022b7642bd6"}' crossorigin="anonymous"></script>
 </body>
 </html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1749848749 -->
