@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Todas las dependencias de CSS del player aquí -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/videojs-ima@2.1.0/dist/videojs.ima.min.css" rel="stylesheet">
+    <style>
+        /* Asegurar que el player ocupe todo el espacio del iframe */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        #my-video { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <!-- El HTML del player -->
+    <video id="my-video" class="video-js vjs-default-skin" controls preload="auto">
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />>
+        <p class="vjs-no-js">
+            Para ver este video, por favor habilita JavaScript y considera actualizar tu navegador a uno que
+            <a href="https://videojs.com/html5-video-support/" target="_blank">soporte video HTML5</a>.
+        </p>
+    </video>
+    
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
+    <!-- 2. Librería base de Video.js -->
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    
+    <!-- 3. Plugin de IMA para Video.js (depende de Video.js y el SDK de IMA) -->
+    <script src="https://cdn.jsdelivr.net/npm/videojs-ima@2.1.0/dist/videojs.ima.min.js"></script>
+
+    <!-- 4. Nuestro script personalizado, que depende de las tres librerías anteriores -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        // --- CONFIGURACIÓN ---
+        var player = videojs('my-video');
+
+        function buildVastTag(adUnit) {
+          var adUnitPath = '/260217354/' + adUnit;
+          var descriptionUrl = encodeURIComponent(window.location.href); 
+          
+          return 'https://pubads.g.doubleclick.net/gampad/ads?' +
+                 'iu=' + adUnitPath +
+                 '&description_url=' + descriptionUrl +
+                 '&tfcd=0&npa=0&sz=640x480|320x240' +
+                 '&gdfp_req=1&unviewed_position_start=1&output=vast&env=vp&impl=s&correlator=' + Date.now();
+        }
+
+        var options = {
+          id: 'my-video',
+          adTagUrl: buildVastTag('generic_preroll_video_ima'),
+        };
+
+        player.ima(options);
+
+        // --- LÓGICA DE EVENTOS ---
+
+        var midrollCuePoints = [120]; 
+        var midrollsPlayed = [];
+
+        player.on('timeupdate', function() {
+          var currentTime = Math.floor(player.currentTime());
+          midrollCuePoints.forEach(function(cuePoint) {
+            if (currentTime === cuePoint && midrollsPlayed.indexOf(cuePoint) === -1) {
+              console.log('Disparando Midroll en el segundo:', cuePoint);
+              midrollsPlayed.push(cuePoint);
+              player.ima.requestAds({ adTagUrl: buildVastTag('generic_preroll_video_ima') });
+            }
+          });
+        });
+
+        player.on('ima_content_ended', function() {
+          console.log('Disparando Postroll');
+          player.ima.requestAds({ adTagUrl: buildVastTag('generic_preroll_video_ima') });
+        });
+
+        player.on('adserror', function(event) {
+          console.error('Error de Anuncio (VAST Error):', event.data.AdError);
+        });
+
+        console.log("Reproductor y plugin IMA inicializados.");
+      });
+    </script>
+</body>
+</html>
